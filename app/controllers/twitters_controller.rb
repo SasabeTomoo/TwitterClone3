@@ -9,4 +9,7 @@ class TwittersController < ApplicationController
     Twitter.create(content: params[:twitter][:content])
     redirect_to new_twitter_path
   end
+  def show
+    @twitter = Twitter.find(params[:id])
+  end
 end

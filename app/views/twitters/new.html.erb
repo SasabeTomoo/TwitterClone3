@@ -1,0 +1,10 @@
+<h1>Twitters#new</h1>
+<%= form_with(model: @twitter, local: true) do |form| %>
+<div class="content">
+  <%= form.label :content %>
+  <%= form.text_field :content %>
+</div>
+<%= form.submit %>
+<% end %>
+
+<%= link_to 'ツイッター一覧画面に戻る', twitters_path %>

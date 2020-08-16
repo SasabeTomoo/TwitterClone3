@@ -1,0 +1,12 @@
+<h1>Twitters#index</h1>
+<h1>ツイッター一覧</h1>
+<table>
+  <tr>
+    <th>つぶやき内容</th>
+  </tr>
+  <% @twitters.each do |twitter| %>
+  <tr>
+    <td><%= twitter.content %></td>
+  </tr>
+<% end %>
+</table>

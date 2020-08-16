@@ -1,5 +1,15 @@
 <h1>Twitters#new</h1>
 <%= form_with(model: @twitter, local: true) do |form| %>
+<% if @twitter.errors.any? %>
+  <div>
+    <h2><%= @twitter.errors.count %>件のエラーがあります</h2>
+    <ul>
+      <% @twitter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="content">
   <%= form.label :content %>
   <%= form.text_field :content %>

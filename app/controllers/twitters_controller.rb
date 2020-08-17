@@ -1,4 +1,5 @@
 class TwittersController < ApplicationController
+  before_action :set_twitter, only: [:show, :edit, :update, :destroy]
   def index
     @twitters = Twitter.all
   end
@@ -8,23 +9,27 @@ class TwittersController < ApplicationController
   def create
     @twitter = Twitter.create(content: params[:twitter][:content])
     if @twitter.save
-      redirect_to new_twitter_path, notice: "つぶやきました！"
+      redirect_to twitters_path, notice: "つぶやきました！"
     else
       render :new
     end
   end
   def show
-    @twitter = Twitter.find(params[:id])
   end
   def edit
-    @twitter = Twitter.find(params[:id])
   end
   def update
-    @twitter = Twitter.find(params[:id])
     if @twitter.update(content: params[:twitter][:content])
       redirect_to twitters_path, notice: "編集しました"
     else
       render :edit
     end
+  end
+  def destroy
+    @twitter.destroy
+    redirect_to twitters_path, notice:"削除しました"
+  end
+  def set_twitter
+    @twitter = Twitter.find(params[:id])
   end
 end

@@ -1,20 +1,19 @@
 <!-- <h1>Twitters#_for</h1> -->
 <%= form_with(model: @twitter, local: true ,url: choose_new_or_edit ) do |form| %>
-<% if @twitter.errors.any? %>
-  <div>
-    <h2><%= @twitter.errors.count %>件のエラーがあります</h2>
-    <ul>
-      <% @twitter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+  <% if @twitter.errors.any? %>
+    <div>
+      <h2><%= @twitter.errors.count %>件のエラーがあります</h2>
+      <ul>
+        <% @twitter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
   </div>
+  <%= form.submit %>
 <% end %>
-<div class="content">
-  <%= form.label :content %>
-  <%= form.text_field :content %>
-</div>
-<%= form.submit %>
-<% end %>
-
 <%= link_to 'ツイッター一覧画面に戻る', twitters_path %>

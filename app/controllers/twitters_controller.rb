@@ -9,7 +9,7 @@ class TwittersController < ApplicationController
     @twitter = Twitter.new
   end
   def create
-    @twitter = Twitter.new(content: params[:twitter][:content])
+    @twitter = Twitter.new(twitter_params)
     if params[:back]
       render :new
     else
@@ -25,7 +25,7 @@ class TwittersController < ApplicationController
   def edit
   end
   def update
-    if @twitter.update(content: params[:twitter][:content])
+    if @twitter.update(twitter_params)
       redirect_to twitters_path, notice: "編集しました"
     else
       render :edit
@@ -36,8 +36,12 @@ class TwittersController < ApplicationController
     redirect_to twitters_path, notice:"削除しました"
   end
   def confirm
-    @twitter = Twitter.new(content: params[:twitter][:content])
+    @twitter = Twitter.new(twitter_params)
     render :new if @twitter.invalid?
+  end
+  private
+  def twitter_params
+    params.require(:twitter).permit(:content)
   end
   def set_twitter
     @twitter = Twitter.find(params[:id])

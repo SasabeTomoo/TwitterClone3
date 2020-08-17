@@ -16,4 +16,15 @@ class TwittersController < ApplicationController
   def show
     @twitter = Twitter.find(params[:id])
   end
+  def edit
+    @twitter = Twitter.find(params[:id])
+  end
+  def update
+    @twitter = Twitter.find(params[:id])
+    if @twitter.update(content: params[:twitter][:content])
+      redirect_to twitters_path, notice: "編集しました"
+    else
+      render :edit
+    end
+  end
 end

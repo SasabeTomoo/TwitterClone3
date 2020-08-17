@@ -8,6 +8,7 @@
   <tr>
     <td><%= twitter.content %></td>
     <td><%= link_to '詳細を確認する', twitter_path(twitter.id) %> </td>
+    <td><%= link_to "編集する", edit_twitter_path(twitter.id) %></td>
   </tr>
 <% end %>
 </table>

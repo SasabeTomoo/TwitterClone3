@@ -1,4 +1,4 @@
-<h1>Twitters#index</h1>
+<!-- <h1>Twitters#index</h1> -->
 <h1>ツイッター一覧</h1>
 <p><%= notice %></p>
 <table>
@@ -7,7 +7,7 @@
   </tr>
   <% @twitters.each do |twitter| %>
   <tr>
-    <td><%= twitter.content %></td>
+    <td class="content"><%= twitter.content %></td>
     <td><%= link_to '詳細を確認する', twitter_path(twitter.id) %> </td>
     <td><%= link_to "編集する", edit_twitter_path(twitter.id) %></td>
     <td><%= link_to '削除する', twitter_path(twitter.id), method: :delete ,data: { confirm: '本当に削除していいですか？'} %></td>

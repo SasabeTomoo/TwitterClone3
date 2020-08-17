@@ -8,13 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-    <a>ヘッダー</a>
-    <%= link_to '[index]', twitters_path %>
-    <%= link_to '[new]', new_twitter_path %>
+  <header>
+    <a>つぶやいてみよう</a>
+    <a href="/">[トップページ]</a>
+    <%= link_to '[一覧]', twitters_path %>
+    <%= link_to '[新規投稿]', new_twitter_path %>
+  </header>
   <body>
     <%= yield %>
   </body>
   <footer>
-    <a>フッター</a>
+    <a>つぶやきツイート課題株式会社（注：架空）</a>
   </footer>
 </html>

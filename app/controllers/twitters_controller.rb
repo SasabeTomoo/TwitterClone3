@@ -39,11 +39,11 @@ class TwittersController < ApplicationController
     @twitter = Twitter.new(twitter_params)
     render :new if @twitter.invalid?
   end
-  private
-  def twitter_params
-    params.require(:twitter).permit(:content)
-  end
-  def set_twitter
-    @twitter = Twitter.find(params[:id])
-  end
+end
+private
+def twitter_params
+  params.require(:twitter).permit(:content)
+end
+def set_twitter
+  @twitter = Twitter.find(params[:id])
 end

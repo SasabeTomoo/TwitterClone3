@@ -1,6 +1,7 @@
 <!-- <h1>Twitters#confirm</h1> -->
 <h3>以下の内容で、送信する。</h3>
 <%= form_with(model: @twitter, url: twitters_path, local: true,) do |form| %>
+<%# あくまでform_withメソッドなので、=form.//_fieldの入力フォームでは初期と同じく=でhtml上で表示させるが(でないとparameterが飛ばない)、改めて、hidden_fieldにて見えなくしている（値を書き換えられると確認の意味がないので）。そのため、別途、見えるだけの表示として、<= @twitter.content >がある。 %>
   <%= form.hidden_field :content %>
   <p>つぶやき内容<%= @twitter.content %></p>
   <%= form.submit "登録する" %>
